@@ -567,5 +567,24 @@ Frontend Pod       Frontend Pod
    :80                 :80
 ```
 
-## Backend Deployment Pending
+## Backend Deployment 
+```
+kubectl apply -f backend-deployment.yaml
+
+kubectl apply -f backend-service.yaml
+
+kubectl get pods -l app=backend -o wide
+
+kubectl logs \
+  $(kubectl get pods -l app=backend -o jsonpath='{.items[0].metadata.name}')
+
+kubectl get svc backend-service
+
+kubectl exec -it \
+$(kubectl get pods -l app=backend -o jsonpath='{.items[0].metadata.name}') \
+-- wget -qO- http://backend-service:3000/api/message
+
+output : {"message":"Hello from the ECS backend task!"}
+
+```
 ## Database Deployment Pending
