@@ -569,6 +569,8 @@ Frontend Pod       Frontend Pod
 
 ## Backend Deployment 
 ```
+kubectl apply -f frontend-ingress.yaml
+
 kubectl apply -f backend-deployment.yaml
 
 kubectl apply -f backend-service.yaml
