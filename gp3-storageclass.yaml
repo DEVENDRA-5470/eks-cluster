@@ -14,4 +14,4 @@ reclaimPolicy: Delete
 
 parameters:
   type: gp3
-  fxType: ext4
+  fsType: ext4
